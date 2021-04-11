@@ -58,7 +58,7 @@ namespace AreaClassLibrary
     public class Figure //Класс фигура
     {
         private double area; //Порщадь фигуры
-        private Point circlelCenters;
+        private Point circleCenter;
         private double  radius;
 
         public double Radius
@@ -69,9 +69,9 @@ namespace AreaClassLibrary
             }
             set
             {
-                circlelCenters =(Point)Points[0].Clone(); //Принимаем цетром радиуса первую точку в списке.
+                circleCenter = (Point)Points[0].Clone(); //Принимаем цетром радиуса первую точку в списке.
                 Points.Clear();
-                Points.Add(circlelCenters);
+                Points.Add(circleCenter);
                 Type = FigureType.CIRCLE;
                 radius = value;
             }
@@ -101,7 +101,7 @@ namespace AreaClassLibrary
             }
         } //Плозадь фигуры
         public double Perimeter { get; set; } //Периметр фигуры
-        public ObservableCollection<Point> Points;
+        public ObservableCollection<Point> Points;//Точки вершин фигуры или если фигура окрнужность Point[0] - центр окружности. 
         public Figure()
         {
             Points = new ObservableCollection<Point>();
