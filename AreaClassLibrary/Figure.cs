@@ -69,6 +69,7 @@ namespace AreaClassLibrary
             }
             set
             {
+
                 circleCenter = (Point)Points[0].Clone(); //Принимаем цетром радиуса первую точку в списке.
                 Points.Clear();
                 Points.Add(circleCenter);
