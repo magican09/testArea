@@ -90,7 +90,7 @@ namespace AreaClassLibrary
                 area += Points[Points.Count - 1].X * Points[0].Y - Points[Points.Count - 1].Y * Points[0].X;
                 area = Math.Abs(area / 2);
                 }
-                else //Если фигура круг - вычисляем площадь
+                else //Если фигура круг - вычисляем   площадь
                 {
                     area = Math.PI * Radius * Radius;
                 }
