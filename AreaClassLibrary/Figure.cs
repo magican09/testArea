@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 
 namespace AreaClassLibrary
 {
-    public enum FiguraType
+    public enum FigureType
     {
         POLIGON,
         CIRCLE
     }
-    public class Point : ICloneable //Класс точка
+    public class Point : ICloneable //Класс точка.
     {
-        public double X;
-        public double Y;
+        public double X { get; set; }
+        public double Y { get; set; }
         public Point(double x, double y)
         {
             X = x;
@@ -34,7 +34,7 @@ namespace AreaClassLibrary
             P2 = (Point)p2.Clone();
         }
         public Vector() { }
-        public void ToZero() //Приведедение вектора к началу координат
+        public void ToZero() //Приведедение вектора к началу координат.
         {
             P2.X -= P1.X;
             P1.X = 0;
@@ -50,7 +50,7 @@ namespace AreaClassLibrary
     }
     public static class Func //Функции...
     {
-        public static double SclarPod(Point p1, Point p2) //Скалярное поивзедение векторов
+        public static double ScalarProd(Point p1, Point p2) //Скалярное произведение векторов.
         {
             return p1.X * p2.X + p1.Y * p2.Y;
         }
@@ -72,17 +72,17 @@ namespace AreaClassLibrary
                 circlelCenters =(Point)Points[0].Clone(); //Принимаем цетром радиуса первую точку в списке.
                 Points.Clear();
                 Points.Add(circlelCenters);
-                Type = FiguraType.CIRCLE;
+                Type = FigureType.CIRCLE;
                 radius = value;
             }
         }
-        public FiguraType Type;
+        public FigureType Type;
         public double Area
         {
             get
             {
                 area = 0;
-                if(Type== FiguraType.POLIGON )
+                if(Type== FigureType.POLIGON )
                 { 
                 for (int ii = 0; ii < Points.Count - 1; ii++) //Вычисление прощади многоугольника по формуле Гаусса 
                     area += Points[ii].X * Points[ii + 1].Y - Points[ii].Y * Points[ii + 1].X;
@@ -105,7 +105,7 @@ namespace AreaClassLibrary
         public Figure()
         {
             Points = new ObservableCollection<Point>();
-            Type = FiguraType.POLIGON;//По умолчанию создаем полигон
+            Type = FigureType.POLIGON;//По умолчанию создаем полигон
         }
         public bool IsTriangleRectan()//Проверка является ли треугольник прямоугольным
         {
@@ -119,7 +119,7 @@ namespace AreaClassLibrary
                 v1.ToZero();
                 v2.ToZero();
                 v3.ToZero();
-                result = Func.SclarPod(v1, v2) * Func.SclarPod(v1, v3) * Func.SclarPod(v2, v3);//Является ли треугольник прямоугольным - произведение скалярных произведенией векторов == 0
+                result = Func.ScalarProd(v1, v2) * Func.ScalarProd(v1, v3) * Func.ScalarProd(v2, v3);//Является ли треугольник прямоугольным - произведение скалярных произведенией векторов == 0
                 return result == 0;
             }
             else
