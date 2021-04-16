@@ -33,8 +33,6 @@ namespace ConsoleApp2
             area = triangle_1.Area;
             IsReg = triangle_1.IsTriangleRectan();
 
-
-
         }
     }
 }

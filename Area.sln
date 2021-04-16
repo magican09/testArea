@@ -11,8 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureTests", "FigureTests\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{720F10DE-3502-49E1-A4FD-CF30F847A8A6}"
 	ProjectSection(SolutionItems) = preProject
-		Init.sql = Init.sql
-		quer.sql = quer.sql
+		sql_request.sql = sql_request.sql
+		sql_tabels_create.sql = sql_tabels_create.sql
 	EndProjectSection
 EndProject
 Global
